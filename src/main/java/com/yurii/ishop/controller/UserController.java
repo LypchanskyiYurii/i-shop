@@ -2,6 +2,7 @@ package com.yurii.ishop.controller;
 
 import com.yurii.ishop.entity.UserEntity;
 import com.yurii.ishop.repository.UserRepo;
+import com.yurii.ishop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserService userService;
 
     @PostMapping
     public ResponseEntity registration(@RequestBody UserEntity user) {
