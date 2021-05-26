@@ -16,6 +16,9 @@ public class UserController {
     @PostMapping
     public ResponseEntity registration(@RequestBody UserEntity user) {
         try {
+            if (userRepo.findByUsername(user.getUsername()) != null) {
+                return ResponseEntity.badRequest().body("User with this name already exists");
+            }
             userRepo.save(user);
             return ResponseEntity.ok("User saved successfully");
         } catch (Exception e) {
