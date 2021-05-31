@@ -3,6 +3,7 @@ package com.yurii.ishop.service;
 import com.yurii.ishop.entity.UserEntity;
 import com.yurii.ishop.exception.UserAlreadyExistException;
 import com.yurii.ishop.exception.UserNotFoundException;
+import com.yurii.ishop.model.User;
 import com.yurii.ishop.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +23,11 @@ public class UserService {
                 userRepo.save(user);
     }
 
-    public UserEntity getOne(Long id) throws UserNotFoundException {
+    public User getOne(Long id) throws UserNotFoundException {
         UserEntity user = userRepo.findById(id).get();
         if (user == null) {
             throw new UserNotFoundException("User not found");
         }
-        return user;
+        return User.toModel(user);
     }
 }
