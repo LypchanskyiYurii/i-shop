@@ -1,6 +1,8 @@
 package com.yurii.ishop.controller;
 
 import com.yurii.ishop.entity.UserEntity;
+import com.yurii.ishop.exception.UserAlreadyExistException;
+import com.yurii.ishop.exception.UserNotFoundException;
 import com.yurii.ishop.repository.UserRepo;
 import com.yurii.ishop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,21 +19,22 @@ public class UserController {
     @PostMapping
     public ResponseEntity registration(@RequestBody UserEntity user) {
         try {
-            if (userRepo.findByUsername(user.getUsername()) != null) {
-                return ResponseEntity.badRequest().body("User with this name already exists");
-            }
-            userRepo.save(user);
+          userService.registration(user);
             return ResponseEntity.ok("User saved successfully");
+        } catch (UserAlreadyExistException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("An error has occurred");
         }
     }
 
     @GetMapping
-    public ResponseEntity getUsers() {
+    public ResponseEntity getOneUser(@RequestParam Long id) {
         try {
-            return ResponseEntity.ok("The server is running");
+            return ResponseEntity.ok(userService.getOne(id));
 
+        } catch (UserNotFoundException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("An error has occurred");
         }
