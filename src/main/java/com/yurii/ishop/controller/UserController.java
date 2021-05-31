@@ -19,7 +19,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity registration(@RequestBody UserEntity user) {
         try {
-          userService.registration(user);
+            userService.registration(user);
             return ResponseEntity.ok("User saved successfully");
         } catch (UserAlreadyExistException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -35,6 +35,15 @@ public class UserController {
 
         } catch (UserNotFoundException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("An error has occurred");
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteUser(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(userService.delete(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("An error has occurred");
         }
