@@ -10,7 +10,7 @@ public class TodoEntity {
     private String title;
     private Boolean completed;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
