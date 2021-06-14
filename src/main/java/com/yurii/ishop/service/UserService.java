@@ -17,7 +17,7 @@ public class UserService {
 
     public UserEntity registration(UserEntity user) throws UserAlreadyExistException {
         if (userRepo.findByUsername(user.getUsername()) != null) {
-            throw new UserAlreadyExistException("User with this name already exists");
+            throw new UserAlreadyExistException("User with this nam already exists");
         }
         return
                 userRepo.save(user);
