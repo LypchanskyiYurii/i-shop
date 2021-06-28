@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class User {
+
     private Long id;
     private String username;
     private List<Todo> todos;
@@ -44,4 +45,5 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }

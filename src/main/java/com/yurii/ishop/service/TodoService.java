@@ -8,12 +8,23 @@ import com.yurii.ishop.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class TodoService {
+
     @Autowired
     private TodoRepo todoRepo;
+
     @Autowired
     private UserRepo userRepo;
+
+    public List<Todo> getAllTodos() {
+        return todoRepo.findAll().stream()
+                .map(Todo::toModel)
+                .collect(Collectors.toList());
+    }
 
     public Todo createTodo(TodoEntity todo, Long userId) {
         UserEntity user = userRepo.findById(userId).get();
@@ -26,4 +37,5 @@ public class TodoService {
         todo.setCompleted(!todo.getCompleted());
         return Todo.toModel(todoRepo.save(todo));
     }
+
 }

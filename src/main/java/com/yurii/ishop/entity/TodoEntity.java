@@ -4,10 +4,13 @@ import javax.persistence.*;
 
 @Entity
 public class TodoEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+
     private Boolean completed;
 
     @ManyToOne
@@ -48,4 +51,5 @@ public class TodoEntity {
     public void setUser(UserEntity user) {
         this.user = user;
     }
+
 }

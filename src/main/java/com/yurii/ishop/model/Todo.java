@@ -3,6 +3,7 @@ package com.yurii.ishop.model;
 import com.yurii.ishop.entity.TodoEntity;
 
 public class Todo {
+
     private Long id;
     private String title;
     private Boolean completed;
@@ -41,4 +42,5 @@ public class Todo {
     public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
+
 }

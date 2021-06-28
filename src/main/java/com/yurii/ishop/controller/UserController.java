@@ -3,7 +3,6 @@ package com.yurii.ishop.controller;
 import com.yurii.ishop.entity.UserEntity;
 import com.yurii.ishop.exception.UserAlreadyExistException;
 import com.yurii.ishop.exception.UserNotFoundException;
-import com.yurii.ishop.repository.UserRepo;
 import com.yurii.ishop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +31,6 @@ public class UserController {
     public ResponseEntity getOneUser(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(userService.getOne(id));
-
         } catch (UserNotFoundException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
@@ -45,7 +43,7 @@ public class UserController {
         try {
             return ResponseEntity.ok(userService.delete(id));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("An error has occurred");
+            return ResponseEntity.badRequest().body("An error has occurred, error massage: " + e.getMessage());
         }
     }
 

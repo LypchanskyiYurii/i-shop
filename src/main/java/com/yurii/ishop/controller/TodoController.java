@@ -1,20 +1,28 @@
 package com.yurii.ishop.controller;
 
 import com.yurii.ishop.entity.TodoEntity;
+import com.yurii.ishop.model.Todo;
 import com.yurii.ishop.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/todos")
 public class TodoController {
+
     @Autowired
     private TodoService todoService;
 
+    @GetMapping
+    public List<Todo> getAllTodos() {
+        return todoService.getAllTodos();
+    }
+
     @PostMapping
-    public ResponseEntity createTodo(@RequestBody TodoEntity todo,
-                                     @RequestParam Long userId) {
+    public ResponseEntity createTodo(@RequestBody TodoEntity todo, @RequestParam Long userId) {
         try {
             return ResponseEntity.ok(todoService.createTodo(todo, userId));
         } catch (Exception e) {
@@ -30,4 +38,5 @@ public class TodoController {
             return ResponseEntity.badRequest().body("An error has occurred");
         }
     }
+
 }
