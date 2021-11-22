@@ -3,7 +3,6 @@ package com.yurii.ishop.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "todo")
 public class TodoEntity {
 
     @Id
@@ -14,7 +13,6 @@ public class TodoEntity {
 
     private Boolean completed;
 
-    private String description;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -23,13 +21,6 @@ public class TodoEntity {
     public TodoEntity() {
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Long getId() {
         return id;
