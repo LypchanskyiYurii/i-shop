@@ -2,8 +2,10 @@ package com.yurii.ishop.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import lombok.Data;
 
 @Entity
+@Data
 public class UserEntity {
 
     @Id
@@ -16,40 +18,5 @@ public class UserEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<TodoEntity> todos;
-
-    public UserEntity() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public List<TodoEntity> getTodos() {
-        return todos;
-    }
-
-    public void setTodos(List<TodoEntity> todos) {
-        this.todos = todos;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 }
