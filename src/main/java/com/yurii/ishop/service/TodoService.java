@@ -5,6 +5,7 @@ import com.yurii.ishop.entity.UserEntity;
 import com.yurii.ishop.model.Todo;
 import com.yurii.ishop.repository.TodoRepo;
 import com.yurii.ishop.repository.UserRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +13,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class TodoService {
 
-    @Autowired
     private TodoRepo todoRepo;
-
-    @Autowired
     private UserRepo userRepo;
 
     public List<Todo> getAllTodos() {
