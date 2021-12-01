@@ -6,7 +6,6 @@ import com.yurii.ishop.model.Todo;
 import com.yurii.ishop.repository.TodoRepo;
 import com.yurii.ishop.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

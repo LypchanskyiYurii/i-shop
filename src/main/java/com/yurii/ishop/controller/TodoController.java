@@ -4,7 +4,6 @@ import com.yurii.ishop.entity.TodoEntity;
 import com.yurii.ishop.model.Todo;
 import com.yurii.ishop.service.TodoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

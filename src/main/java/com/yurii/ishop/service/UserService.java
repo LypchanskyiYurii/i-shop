@@ -6,7 +6,6 @@ import com.yurii.ishop.exception.UserNotFoundException;
 import com.yurii.ishop.model.User;
 import com.yurii.ishop.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
