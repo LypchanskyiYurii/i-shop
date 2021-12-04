@@ -1,7 +1,7 @@
 package com.yurii.ishop.controller;
 
 import com.yurii.ishop.entity.TodoEntity;
-import com.yurii.ishop.model.Todo;
+import com.yurii.ishop.dto.Todo;
 import com.yurii.ishop.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

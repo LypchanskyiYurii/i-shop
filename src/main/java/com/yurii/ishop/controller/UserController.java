@@ -1,6 +1,6 @@
 package com.yurii.ishop.controller;
 
-import com.yurii.ishop.entity.UserEntity;
+import com.yurii.ishop.entity.User;
 import com.yurii.ishop.exception.UserAlreadyExistException;
 import com.yurii.ishop.exception.UserNotFoundException;
 import com.yurii.ishop.service.UserService;
@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity registration(@RequestBody UserEntity user) {
+    public ResponseEntity registration(@RequestBody User user) {
         try {
             userService.registration(user);
             return ResponseEntity.ok("User saved successfully");

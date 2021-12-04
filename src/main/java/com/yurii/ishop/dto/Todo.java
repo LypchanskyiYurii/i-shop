@@ -1,4 +1,4 @@
-package com.yurii.ishop.model;
+package com.yurii.ishop.dto;
 
 import com.yurii.ishop.entity.TodoEntity;
 import lombok.Data;

@@ -1,6 +1,5 @@
-package com.yurii.ishop.model;
+package com.yurii.ishop.dto;
 
-import com.yurii.ishop.entity.UserEntity;
 import lombok.Data;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class User {
     private String username;
     private List<Todo> todos;
 
-    public static User toModel(UserEntity entity) {
+    public static User toModel(com.yurii.ishop.entity.User entity) {
         User model = new User();
         model.setId(entity.getId());
         model.setUsername(entity.getUsername());

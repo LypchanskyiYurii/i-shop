@@ -1,10 +1,10 @@
 package com.yurii.ishop.repository;
 
-import com.yurii.ishop.entity.UserEntity;
+import com.yurii.ishop.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepo extends CrudRepository<UserEntity, Long> {
+public interface UserRepo extends CrudRepository<User, Long> {
 
-    UserEntity findByUsername (String username);
+    User findByUsername (String username);
 
 }

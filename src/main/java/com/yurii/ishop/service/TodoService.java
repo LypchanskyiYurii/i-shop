@@ -1,8 +1,8 @@
 package com.yurii.ishop.service;
 
 import com.yurii.ishop.entity.TodoEntity;
-import com.yurii.ishop.entity.UserEntity;
-import com.yurii.ishop.model.Todo;
+import com.yurii.ishop.entity.User;
+import com.yurii.ishop.dto.Todo;
 import com.yurii.ishop.repository.TodoRepo;
 import com.yurii.ishop.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class TodoService {
     }
 
     public Todo createTodo(TodoEntity todo, Long userId) {
-        UserEntity user = userRepo.findById(userId).get();
+        User user = userRepo.findById(userId).get();
         todo.setUser(user);
         return Todo.toModel(todoRepo.save(todo));
     }
