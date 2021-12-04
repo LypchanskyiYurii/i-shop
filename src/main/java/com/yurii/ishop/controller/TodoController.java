@@ -1,6 +1,5 @@
 package com.yurii.ishop.controller;
 
-import com.yurii.ishop.entity.TodoEntity;
 import com.yurii.ishop.dto.Todo;
 import com.yurii.ishop.service.TodoService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
 package com.yurii.ishop.dto;
 
-import com.yurii.ishop.entity.TodoEntity;
 import lombok.Data;
 
 @Data

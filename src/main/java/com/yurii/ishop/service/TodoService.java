@@ -1,6 +1,5 @@
 package com.yurii.ishop.service;
 
-import com.yurii.ishop.entity.TodoEntity;
 import com.yurii.ishop.entity.User;
 import com.yurii.ishop.dto.Todo;
 import com.yurii.ishop.repository.TodoRepo;
