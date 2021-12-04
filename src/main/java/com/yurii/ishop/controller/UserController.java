@@ -3,7 +3,6 @@ package com.yurii.ishop.controller;
 import com.yurii.ishop.entity.User;
 import com.yurii.ishop.exception.UserAlreadyExistException;
 import com.yurii.ishop.exception.UserNotFoundException;
-import com.yurii.ishop.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
