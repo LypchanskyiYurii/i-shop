@@ -1,7 +1,7 @@
-package com.yurii.ishop.entity.dto.user;
+package com.yurii.ishop.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.yurii.ishop.entity.dto.account.AccountResponseDto;
+import com.yurii.ishop.dto.account.AccountResponseDto;
 import lombok.Data;
 
 @Data

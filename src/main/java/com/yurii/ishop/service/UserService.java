@@ -1,15 +1,12 @@
 package com.yurii.ishop.service;
 
 import com.yurii.ishop.entity.User;
-import com.yurii.ishop.entity.dto.user.UserResponseDto;
+import com.yurii.ishop.dto.user.UserResponseDto;
 import com.yurii.ishop.exception.UserNotFoundException;
 import com.yurii.ishop.mapper.UserConverter;
 import com.yurii.ishop.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-
-import java.awt.print.Pageable;
 
 @Service
 @RequiredArgsConstructor

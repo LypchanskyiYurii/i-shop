@@ -1,4 +1,4 @@
-package com.yurii.ishop.entity.dto.account;
+package com.yurii.ishop.dto.account;
 
 public class AccountRequestDto {
 

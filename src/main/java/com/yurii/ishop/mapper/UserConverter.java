@@ -1,7 +1,7 @@
 package com.yurii.ishop.mapper;
 
 import com.yurii.ishop.entity.User;
-import com.yurii.ishop.entity.dto.user.UserResponseDto;
+import com.yurii.ishop.dto.user.UserResponseDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

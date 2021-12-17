@@ -1,7 +1,7 @@
 package com.yurii.ishop.mapper;
 
 import com.yurii.ishop.entity.Account;
-import com.yurii.ishop.entity.dto.account.AccountResponseDto;
+import com.yurii.ishop.dto.account.AccountResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component
