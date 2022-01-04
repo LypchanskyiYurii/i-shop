@@ -1,7 +1,10 @@
 package com.yurii.ishop.service;
 
+import com.yurii.ishop.dto.user.UserRequestDto;
+import com.yurii.ishop.entity.Account;
 import com.yurii.ishop.entity.User;
 import com.yurii.ishop.dto.user.UserResponseDto;
+import com.yurii.ishop.exception.UserAlreadyExistException;
 import com.yurii.ishop.exception.UserNotFoundException;
 import com.yurii.ishop.mapper.UserConverter;
 import com.yurii.ishop.repository.UserRepository;
@@ -25,5 +28,33 @@ public class UserService {
 
     User getUserById(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
+    }
+
+    public UserResponseDto create(UserRequestDto userRequestDto) {
+        User userFromDB = userRepository.findByUsername(userRequestDto.getUsername());
+
+        if (userFromDB != null) {
+            try {
+                throw new UserAlreadyExistException("User with username=[" + userRequestDto.getUsername() + "] already exists");
+            } catch (UserAlreadyExistException e) {
+                e.printStackTrace();
+            }
+        }
+
+        User user = new User();
+        user.setEmail(userRequestDto.getEmail());
+        user.setUsername(userRequestDto.getUsername());
+        user.setPassword(userRequestDto.getPassword());
+
+        if (userRequestDto.getAccount() != null) {
+            Account account = new Account();
+            account.setAmount(userRequestDto.getAccount().getAmount());
+            user.setAccount(account);
+            account.setUser(user);
+        }
+
+        User createdUser = userRepository.save(user);
+        return userConverter.toUserResponseDto(createdUser);
+
     }
 }
