@@ -19,6 +19,7 @@ dependencies {
 	implementation 'javax.validation:validation-api:1.0.0.GA'
 	implementation 'javax.validation:validation-api:2.0.0.Final'
 	implementation 'org.hibernate:hibernate-validator:7.0.2.Final'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 	runtimeOnly 'org.postgresql:postgresql'
