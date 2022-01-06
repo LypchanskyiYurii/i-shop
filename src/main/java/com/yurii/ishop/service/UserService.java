@@ -1,14 +1,16 @@
 package com.yurii.ishop.service;
 
 import com.yurii.ishop.dto.user.UserRequestDto;
+import com.yurii.ishop.dto.user.UserResponseDto;
 import com.yurii.ishop.entity.Account;
 import com.yurii.ishop.entity.User;
-import com.yurii.ishop.dto.user.UserResponseDto;
 import com.yurii.ishop.exception.UserAlreadyExistException;
 import com.yurii.ishop.exception.UserNotFoundException;
 import com.yurii.ishop.mapper.UserConverter;
 import com.yurii.ishop.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -55,6 +57,10 @@ public class UserService {
 
         User createdUser = userRepository.save(user);
         return userConverter.toUserResponseDto(createdUser);
-
     }
+
+    public Page<UserResponseDto> getAll(Pageable pageable) {
+        return userRepository.findAll(pageable).map(userConverter::toUserResponseDto);
+    }
+
 }
