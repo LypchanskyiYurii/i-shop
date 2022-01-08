@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,9 +37,9 @@ public class UserController {
         return ResponseEntity.ok(userService.getAll(paging));
     }
 
-    @PutMapping
-    public ResponseEntity<UserResponseDto> update(@PathVariable @Valid UserRequestDto userRequestDto) {
-        return ResponseEntity.ok(userService.create(userRequestDto));
+    @PutMapping("/{userId}")
+    public ResponseEntity<UserResponseDto> update(@PathVariable("userId") Long userId, @RequestBody UserRequestDto userRequestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.update(userId, userRequestDto));
     }
 
 }

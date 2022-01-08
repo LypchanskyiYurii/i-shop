@@ -63,4 +63,18 @@ public class UserService {
         return userRepository.findAll(pageable).map(userConverter::toUserResponseDto);
     }
 
+    public UserResponseDto update(Long id, UserRequestDto userRequestDto) {
+        User user = getUserById(id);
+        user.setEmail(userRequestDto.getEmail());
+        user.setUsername(userRequestDto.getUsername());
+
+        if (userRequestDto.getAccount() != null) {
+            Account account = user.getAccount();
+            account.setAmount(userRequestDto.getAccount().getAmount());
+        }
+
+        User updateUser = userRepository.save(user);
+        return userConverter.toUserResponseDto(updateUser);
+    }
+
 }
