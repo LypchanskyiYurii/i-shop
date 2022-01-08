@@ -36,4 +36,9 @@ public class UserController {
         return ResponseEntity.ok(userService.getAll(paging));
     }
 
+    @PutMapping
+    public ResponseEntity<UserResponseDto> update(@PathVariable @Valid UserRequestDto userRequestDto) {
+        return ResponseEntity.ok(userService.create(userRequestDto));
+    }
+
 }
