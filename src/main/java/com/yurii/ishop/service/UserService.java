@@ -77,7 +77,7 @@ public class UserService {
         return userConverter.toUserResponseDto(updateUser);
     }
 
-    public void deleteById(Long userId){
+    public void deleteById(Long userId) {
         getUserById(userId);
         userRepository.deleteById(userId);
     }

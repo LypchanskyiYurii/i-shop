@@ -47,4 +47,5 @@ public class UserController {
         userService.deleteById(userId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
 }
