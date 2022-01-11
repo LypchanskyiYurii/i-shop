@@ -13,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -32,6 +34,7 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
     }
 
+    @Transactional
     public UserResponseDto create(UserRequestDto userRequestDto) {
         User userFromDB = userRepository.findByUsername(userRequestDto.getUsername());
 
@@ -63,6 +66,7 @@ public class UserService {
         return userRepository.findAll(pageable).map(userConverter::toUserResponseDto);
     }
 
+    @Transactional
     public UserResponseDto update(Long id, UserRequestDto userRequestDto) {
         User user = getUserById(id);
         user.setEmail(userRequestDto.getEmail());
@@ -77,6 +81,7 @@ public class UserService {
         return userConverter.toUserResponseDto(updateUser);
     }
 
+    @Transactional
     public void deleteById(Long userId) {
         getUserById(userId);
         userRepository.deleteById(userId);
